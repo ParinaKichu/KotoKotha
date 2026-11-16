@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KotoKotha — Share your experience with services and institutions in Bangladesh, anonymously.">
+    <title>KotoKotha — Share Your Experience Anonymously</title>
+    <!-- Apply saved theme before CSS paints to prevent flash -->
+    <script>(function(){var t=localStorage.getItem('kotokotha_theme');if(!t)t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t)})()</script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="home">
+
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">কতকথা KotoKotha</a>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="posts.html">All Posts</a>
+                <a href="top.html">Top Posts</a>
+                <a href="submit.html">Share Experience</a>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode">🌙</button>
+                <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+
+            <div class="hero">
+                <h1>Share your experience, <span class="highlight">anonymously</span></h1>
+                <p>
+                    Tell people what it's really like to visit a hospital,
+                    government office, bank, school, or any service in Bangladesh.
+                </p>
+                <p style="margin-top: 0.75rem; font-weight: 600;">
+                    No name, email or phone number is collected.
+                </p>
+            </div>
+
+            <h2 class="section-title">Latest Experiences</h2>
+            <div class="cards-grid" id="latestPosts"></div>
+
+            <p style="text-align: center; margin-top: 1.5rem;">
+                <a href="posts.html">View all posts →</a>
+            </p>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p class="footer-disclaimer" id="footerDisclaimer"></p>
+            <div class="footer-bottom">
+                <p>KotoKotha — Share your experience anonymously</p>
+                <div class="footer-links">
+                    <a href="about.html">About</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="terms.html">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/config.js"></script>
+    <script src="js/locations.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Your Experience — KotoKotha</title>
+    <script>(function(){var t=localStorage.getItem('kotokotha_theme');if(!t)t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t)})()</script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="submit">
+
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">কতকথা KotoKotha</a>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="posts.html">All Posts</a>
+                <a href="top.html">Top Posts</a>
+                <a href="submit.html">Share Experience</a>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode">🌙</button>
+                <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1 class="section-title">Share Your Experience</h1>
+
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem;">
+                Describe your real experience with a service or institution.
+                No name, email or phone number is collected.
+                Your post is completely anonymous and will appear after a brief review.
+            </p>
+
+            <div id="formMessage"></div>
+
+            <div class="form-card">
+                <form id="submitForm">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" id="title" placeholder="e.g. Long wait at Dhaka General Hospital" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category" required>
+                            <option value="">Select category</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="institution">Institution / Office Name</label>
+                        <input type="text" id="institution" placeholder="e.g. Rajshahi Medical College Hospital" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="division">Division</label>
+                        <select id="division" required>
+                            <option value="">Select division</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="district">District</label>
+                        <select id="district" required>
+                            <option value="">Select division first</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Rating</label>
+                        <div class="star-input" id="starInput">
+                            <span data-value="1">☆</span>
+                            <span data-value="2">☆</span>
+                            <span data-value="3">☆</span>
+                            <span data-value="4">☆</span>
+                            <span data-value="5">☆</span>
+                        </div>
+                        <input type="hidden" id="rating" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="body">Your Experience</label>
+                        <textarea id="body" rows="6" placeholder="Describe what happened — be honest and specific. What went well? What didn't?" required></textarea>
+                        <small id="charCount">Minimum 30 characters</small>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Your Experience</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p class="footer-disclaimer" id="footerDisclaimer"></p>
+            <div class="footer-bottom">
+                <p>KotoKotha — Share your experience anonymously</p>
+                <div class="footer-links">
+                    <a href="about.html">About</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="terms.html">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/config.js"></script>
+    <script src="js/locations.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

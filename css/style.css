@@ -1,0 +1,613 @@
+/* ══════════════════════════════════════════════════
+   KotoKotha — Stylesheet
+   White background, one green accent, system fonts.
+   Mobile-first. No animations or flashy effects.
+
+   THEME SYSTEM:
+   All colors live in CSS variables on :root (light)
+   and [data-theme="dark"] (dark). A tiny inline
+   script in each page's <head> reads localStorage
+   (or the system preference) and sets data-theme
+   on <html> BEFORE the CSS paints, so there is no
+   white flash. The toggle in the header flips the
+   attribute and saves the choice.
+   ══════════════════════════════════════════════════ */
+
+/* ── Light theme (default) ── */
+:root {
+    --bg:             #ffffff;
+    --bg-card:        #f9fafb;
+    --text:           #111827;
+    --text-secondary: #6b7280;
+    --border:         #e5e7eb;
+    --green:          #059669;
+    --green-hover:    #047857;
+    --green-light:    #ecfdf5;
+    --danger:         #dc2626;
+    --star-color:     #f59e0b;
+    --warn-bg:        #fffbeb;
+    --warn-border:    #f59e0b;
+    --warn-text:      #92400e;
+    --input-bg:       #ffffff;
+    --shadow:         0 1px 3px rgba(0, 0, 0, 0.08);
+    --radius:         8px;
+}
+
+/* ── Dark theme ── */
+[data-theme="dark"] {
+    --bg:             #111827;
+    --bg-card:        #1f2937;
+    --text:           #f3f4f6;
+    --text-secondary: #9ca3af;
+    --border:         #374151;
+    --green:          #10b981;
+    --green-hover:    #059669;
+    --green-light:    #064e3b;
+    --danger:         #f87171;
+    --star-color:     #fbbf24;
+    --warn-bg:        #422006;
+    --warn-border:    #d97706;
+    --warn-text:      #fde68a;
+    --input-bg:       #1f2937;
+    --shadow:         0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* ── Reset ── */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ── Base ── */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+                 'Helvetica Neue', Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    color: var(--green);
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+main {
+    flex: 1;
+    padding: 2rem 0;
+}
+
+/* ── Container ── */
+.container {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* ═══════════ HEADER & NAV ═══════════ */
+header {
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--green) !important;
+    text-decoration: none !important;
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: var(--text);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.nav-links a:hover {
+    color: var(--green);
+    text-decoration: none;
+}
+
+/* ── Header right-side buttons ── */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Theme toggle — sun/moon button */
+.theme-btn {
+    background: none;
+    border: 1px solid var(--border);
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    color: var(--text);
+    line-height: 1;
+}
+
+/* Hamburger button — hidden on desktop */
+.menu-btn {
+    display: none;
+    background: none;
+    border: 1px solid var(--border);
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    color: var(--text);
+}
+
+/* ═══════════ FOOTER ═══════════ */
+footer {
+    background: var(--bg-card);
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+}
+
+.footer-content {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Disclaimer sits at the top of the footer */
+.footer-disclaimer {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    max-width: 720px;
+}
+
+/* Tagline + links row */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.footer-bottom p {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+/* ═══════════ HERO / INTRO ═══════════ */
+.hero {
+    text-align: center;
+    padding: 2rem 0 1.5rem;
+}
+
+.hero h1 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    max-width: 560px;
+    margin: 0.25rem auto 0;
+}
+
+.hero .highlight {
+    color: var(--green);
+    font-weight: 600;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+/* ═══════════ DISCLAIMER BANNER (removed — now in footer only) ═══════════ */
+
+/* ═══════════ CARDS GRID ═══════════ */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+}
+
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    box-shadow: var(--shadow);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.badge {
+    display: inline-block;
+    background: var(--green-light);
+    color: var(--green);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+}
+
+.stars {
+    color: var(--star-color);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+    line-height: 1.4;
+}
+
+.card-title a {
+    color: var(--text);
+}
+.card-title a:hover {
+    color: var(--green);
+    text-decoration: none;
+}
+
+.card-meta {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.card-body {
+    font-size: 0.9rem;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border);
+}
+
+.votes {
+    display: flex;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+}
+
+.vote-up   { color: var(--green); }
+.vote-down { color: var(--danger); }
+
+.time {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+/* ═══════════ FILTERS BAR ═══════════ */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.filters select,
+.filters input[type="text"] {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+    font-family: inherit;
+    background: var(--input-bg);
+    color: var(--text);
+    min-width: 160px;
+}
+
+.filters input[type="text"] {
+    flex: 1;
+    min-width: 200px;
+}
+
+/* ═══════════ FORM ═══════════ */
+.form-card {
+    max-width: 640px;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+    font-family: inherit;
+    background: var(--input-bg);
+    color: var(--text);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group small {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+/* Star rating input — clickable stars */
+.star-input {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.star-input span {
+    font-size: 1.75rem;
+    cursor: pointer;
+    color: var(--border);
+    line-height: 1;
+}
+
+.star-input span.active {
+    color: var(--star-color);
+}
+
+/* ═══════════ BUTTONS ═══════════ */
+.btn {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-primary {
+    background: var(--green);
+    color: #fff;
+}
+.btn-primary:hover {
+    background: var(--green-hover);
+}
+.btn-primary:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+}
+
+/* Vote buttons on the single-post page */
+.vote-buttons {
+    display: flex;
+    gap: 0.75rem;
+    margin: 1.25rem 0;
+}
+
+.vote-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--input-bg);
+    font-size: 0.9rem;
+    font-family: inherit;
+    cursor: pointer;
+    color: var(--text);
+}
+
+.vote-btn:hover:not(:disabled) {
+    border-color: var(--green);
+}
+
+.vote-btn:disabled {
+    cursor: default;
+    opacity: 0.6;
+}
+
+.vote-btn.voted {
+    border-color: var(--green);
+    background: var(--green-light);
+}
+
+/* ═══════════ MESSAGES ═══════════ */
+.error-message {
+    background: var(--warn-bg);
+    border: 1px solid var(--danger);
+    color: var(--danger);
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.success-message {
+    background: var(--green-light);
+    border: 1px solid var(--green);
+    color: var(--green);
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.empty-message {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 2rem;
+    font-size: 1rem;
+}
+
+.loading {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-secondary);
+}
+
+/* ═══════════ SINGLE POST PAGE ═══════════ */
+.post-full {
+    max-width: 720px;
+}
+
+.post-full .badge {
+    margin-bottom: 0.75rem;
+}
+
+.post-full h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.post-full .post-meta {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+}
+
+.post-full .post-body {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: 1.25rem 0;
+    white-space: pre-wrap;
+}
+
+.post-full .post-date {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* ═══════════ STATIC PAGES (About, Privacy, Terms) ═══════════ */
+.static-page {
+    max-width: 640px;
+}
+
+.static-page h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.static-page h2 {
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.static-page p,
+.static-page li {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+    color: var(--text);
+    line-height: 1.7;
+}
+
+.static-page ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* ═══════════ RESPONSIVE (mobile) ═══════════ */
+@media (max-width: 640px) {
+    .hero h1 {
+        font-size: 1.4rem;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .filters {
+        flex-direction: column;
+    }
+
+    .filters select,
+    .filters input[type="text"] {
+        min-width: 100%;
+    }
+
+    /* Show hamburger, hide horizontal links */
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: var(--bg);
+        flex-direction: column;
+        padding: 1rem;
+        border-bottom: 1px solid var(--border);
+        gap: 0.75rem;
+        box-shadow: var(--shadow);
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+}

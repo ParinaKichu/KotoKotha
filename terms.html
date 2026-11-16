@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms — KotoKotha</title>
+    <script>(function(){var t=localStorage.getItem('kotokotha_theme');if(!t)t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t)})()</script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="terms">
+
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">কতকথা KotoKotha</a>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="posts.html">All Posts</a>
+                <a href="top.html">Top Posts</a>
+                <a href="submit.html">Share Experience</a>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode">🌙</button>
+                <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="static-page">
+                <h1>Terms of Use</h1>
+                <h2>What To Post</h2>
+                <p>
+                    Describe your genuine, first-hand experience with a service
+                    or institution in Bangladesh — a hospital visit, a government
+                    office interaction, a banking issue, a school experience, etc.
+                    Be honest and specific.
+                </p>
+                <h2>What NOT To Post</h2>
+                <ul>
+                    <li>Personal phone numbers, home addresses, or national ID numbers (yours or anyone else's)</li>
+                    <li>Full names of private individuals (you may name public offices and institutions)</li>
+                    <li>Threats, hate speech, or content that incites violence</li>
+                    <li>Advertisements or spam</li>
+                    <li>Content that is knowingly false or fabricated</li>
+                </ul>
+                <h2>Moderation</h2>
+                <p>
+                    Every post is reviewed before it appears on the site.
+                    Posts that violate these rules will not be approved.
+                    We reserve the right to remove any post at any time.
+                </p>
+                <h2>No Guarantees</h2>
+                <p>
+                    We do not guarantee that the site will always be available,
+                    that posts will be reviewed within a specific time, or that
+                    the information in posts is accurate. All posts are personal
+                    opinions, not verified facts.
+                </p>
+                <h2>Voting</h2>
+                <p>
+                    You may vote once per post (upvote or downvote). Votes cannot
+                    be changed or removed in this version of the site.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p class="footer-disclaimer" id="footerDisclaimer"></p>
+            <div class="footer-bottom">
+                <p>KotoKotha — Share your experience anonymously</p>
+                <div class="footer-links">
+                    <a href="about.html">About</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="terms.html">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/config.js"></script>
+    <script src="js/locations.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

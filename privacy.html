@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy — KotoKotha</title>
+    <script>(function(){var t=localStorage.getItem('kotokotha_theme');if(!t)t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t)})()</script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="privacy">
+
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">কতকথা KotoKotha</a>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="posts.html">All Posts</a>
+                <a href="top.html">Top Posts</a>
+                <a href="submit.html">Share Experience</a>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode">🌙</button>
+                <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="static-page">
+                <h1>Privacy</h1>
+                <h2>What We Do NOT Collect</h2>
+                <ul>
+                    <li>Your name</li>
+                    <li>Your email address</li>
+                    <li>Your phone number</li>
+                    <li>Your IP address</li>
+                    <li>Any account or login information (there are no accounts)</li>
+                </ul>
+                <h2>What Is Stored</h2>
+                <p>
+                    When you submit a post, only the text you typed is saved:
+                    the title, category, institution name, location, star rating,
+                    and your experience. Nothing that identifies you.
+                </p>
+                <h2>What Is Stored in Your Browser</h2>
+                <p>
+                    We use your browser's <strong>localStorage</strong> to remember
+                    which posts you have voted on (prevents double-voting) and your
+                    light/dark theme preference. This data stays on your device and
+                    is never sent to us. You can clear it at any time through your
+                    browser settings.
+                </p>
+                <h2>Moderation</h2>
+                <p>
+                    All posts are reviewed before they appear on the site.
+                    This is done to filter out spam, threats, and content that
+                    contains personal information like phone numbers or home addresses.
+                </p>
+                <h2>Third-Party Services</h2>
+                <p>
+                    Posts and votes are stored on a secure, hosted server.
+                    No analytics, ads, or tracking scripts are used.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p class="footer-disclaimer" id="footerDisclaimer"></p>
+            <div class="footer-bottom">
+                <p>KotoKotha — Share your experience anonymously</p>
+                <div class="footer-links">
+                    <a href="about.html">About</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="terms.html">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/config.js"></script>
+    <script src="js/locations.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
